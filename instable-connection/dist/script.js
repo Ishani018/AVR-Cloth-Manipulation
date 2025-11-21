@@ -171,16 +171,34 @@ class Cloth {
             const vx = (p.x - p.oldx) * this.config.friction;
             const vy = (p.y - p.oldy) * this.config.friction;
 
+            // Store old positions before updating
+            const prevOldX = p.oldx;
+            const prevOldY = p.oldy;
+            
             p.oldx = p.x;
             p.oldy = p.y;
 
             p.x += vx;
             p.y += vy + this.config.gravity;
             
-            // Floor
+            // Floor collision with energy loss (real cloth doesn't bounce)
             if (p.y > 300) {
-                 p.y = 300;
-                 p.oldy = p.y + vy; 
+                // Clamp to floor
+                p.y = 300;
+                
+                // Heavily dampen velocity when hitting floor (cloth settles, doesn't bounce)
+                // Set oldy close to current y so next frame's velocity is minimal
+                const floorDamping = 0.1; // Absorb 90% of energy
+                if (vy > 0) { // Was moving downward
+                    // Make oldy such that next velocity is tiny
+                    p.oldy = p.y - (vy * floorDamping);
+                } else {
+                    // Was moving up (bouncing), stop it completely
+                    p.oldy = p.y;
+                }
+                
+                // Increase friction on floor (reduce horizontal sliding)
+                p.oldx = p.x - (vx * 0.4);
             }
         }
     }
