@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+#ui-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    pointer-events: none;
+    z-index: 10;
+}
+
+h1 { margin: 0 0 10px 0; font-size: 1rem; text-transform: uppercase; color: #ccc; }
+p { margin: 5px 0; font-size: 0.85rem; color: #888; }
+
+/* --- The New Label System --- */
+#labels {
+    position: absolute;
+    bottom: 50px; /* Sits below the cloths */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 300px; /* Space between labels matches cloth gap (300 units) */
+    pointer-events: none;
+    z-index: 5;
+}
+
+.label-box {
+    width: 250px; /* Same width as the cloths */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    border-top: 2px solid #555;
+    backdrop-filter: blur(4px);
+}
+
+.label-box h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.label-box p {
+    color: #aaa;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
