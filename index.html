@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric Material Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-container">
+        <h1>Fabric Simulation Lab</h1>
+        <div class="controls">
+            <p><strong>Left Click + Drag:</strong> Cut the cloth</p>
+            <p><strong>Right Click + Drag:</strong> Wind / Push</p>
+            <p><strong>Spacebar:</strong> Reset</p>
+        </div>
+    </div>
+
+    <div id="labels">
+        <div class="label-box">
+            <h2>Denim</h2>
+            <p>Heavy, stiff, low mesh density.<br>High friction (stops swinging fast).</p>
+        </div>
+        <div class="label-box">
+            <h2>Linen</h2>
+            <p>Balanced weight and flexibility.<br>Natural fiber behavior.</p>
+        </div>
+        <div class="label-box">
+            <h2>Silk</h2>
+            <p>Light, airy, high mesh density.<br>Low friction (flutters continuously).</p>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
